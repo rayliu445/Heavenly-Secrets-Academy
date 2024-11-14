@@ -1,10 +1,12 @@
 package com.tianji.gateway.config;
 
+import cn.hutool.core.collection.CollectionUtil;
 import lombok.Data;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
+import java.util.HashSet;
 import java.util.Set;
 
 @Data
@@ -16,6 +18,9 @@ public class AuthProperties implements InitializingBean {
 
     @Override
     public void afterPropertiesSet() throws Exception {
+        if(CollectionUtil.isEmpty(excludePath)){
+            excludePath=new HashSet<>();
+        }
         // 添加默认不拦截的路径
         excludePath.add("/error/**");
         excludePath.add("/jwks");

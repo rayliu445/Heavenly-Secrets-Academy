@@ -14,7 +14,7 @@ import java.net.UnknownHostException;
 
 @SpringBootApplication
 @EnableScheduling
-@MapperScan("com.tianji.learning.mapper")
+@MapperScan("com.tianji.learing.mapper")
 @EnableAsync
 @Slf4j
 public class XxlJobDemoApplication {
